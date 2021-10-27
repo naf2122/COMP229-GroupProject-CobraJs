@@ -1,4 +1,7 @@
-/* custom JS goes here */
+/* COMP229-W2021-MidTerm-30088273
+Nicholas Contini
+300882373
+ */
 
 /* pagination code from http://www.bootply.com/lxa0FF9yhw */
 $.fn.pageMe = function(opts){

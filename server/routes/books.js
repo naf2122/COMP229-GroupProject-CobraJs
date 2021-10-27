@@ -1,3 +1,8 @@
+
+/*!--COMP229-W2021-MidTerm-30088273
+Nicholas Contini
+300882373
+*/
 // modules required for routing
 let express = require('express');
 let router = express.Router();
@@ -30,6 +35,7 @@ router.get('/add', (req, res, next) => {
 
 // POST process the Book Details page and create a new Book - CREATE
 router.post('/add', (req, res, next) => {
+  //create new book
     let newBook = book ({
     "Title": req.body.title,
     "Description": req.body.description,
@@ -37,7 +43,7 @@ router.post('/add', (req, res, next) => {
     "Author": req.body.author,
     "Genre": req.body.genre,
     });
-
+//pass new book to create function
     book.create(newBook, (err, book) =>
     {
       if (err)
@@ -56,7 +62,7 @@ router.post('/add', (req, res, next) => {
 router.get('/:id', (req, res, next) => {
 
   let id = req.params.id;
-
+//get book id in order to edit it
   book.findById(id, (err, bookToEdit) => {
       if(err)
       {
@@ -74,7 +80,8 @@ router.get('/:id', (req, res, next) => {
 router.post('/:id', (req, res, next) => {
 
   let id = req.params.id
-
+//create "new" book that's actually just the edited book
+//and pass to book db
   let updatedBook = book({
     "_id": id,
     "Title": req.body.title,
@@ -103,7 +110,7 @@ router.post('/:id', (req, res, next) => {
 router.get('/delete/:id', (req, res, next) => {
 
   let id = req.params.id;
-
+//delete the specific book, found by id
   book.remove({_id: id}, (err) => {
       if(err)
       {
