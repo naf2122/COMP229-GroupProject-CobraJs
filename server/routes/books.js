@@ -76,7 +76,7 @@ router.post('/:id', (req, res, next) => {
   let id = req.params.id
 
   let updatedBook = book({
-    "id": _id,
+    "_id": id,
     "Title": req.body.title,
     "Description": req.body.description,
     "Price": req.body.price,
@@ -84,7 +84,7 @@ router.post('/:id', (req, res, next) => {
     "Genre": req.body.genre,
   });
 
-  Contact.updateOne({_id: id}, updatedContact, (err) => {
+  book.updateOne({_id: id}, updatedBook, (err) => {
       if(err)
       {
           console.log(err);
