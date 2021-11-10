@@ -30,7 +30,7 @@ router.get('/', (req, res, next) => {
 
 //  GET the Book Details page in order to create a survey
 router.get('/add', (req, res, next) => {
-  res.render('survey/details', { title: 'Create a Survey', survey: {}});
+  res.render('survey/questions', { title: 'Create a Survey', survey: {}});
 });
 
 // POST process the Book Details page and create a new survey - CREATE
@@ -71,7 +71,7 @@ router.get('/:id', (req, res, next) => {
       }
       else
       {
-          res.render('survey/details', {title: 'Edit Book', survey: bookToEdit})
+          res.render('survey/questions', {title: 'Edit Book', survey: bookToEdit})
       }
   });
 });
