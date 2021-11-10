@@ -4,13 +4,13 @@ let router = express.Router();
 let mongoose = require('mongoose');
 
 // define the game model
-let book = require('../models/books');
+let book = require('../models/survey');
 
 /* GET home page. wildcard */
 router.get('/', (req, res, next) => {
   res.render('content/index', {
     title: 'Home',
-    books: ''
+    survey: ''
    });
 });
 

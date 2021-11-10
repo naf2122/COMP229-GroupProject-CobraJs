@@ -9,31 +9,31 @@ let router = express.Router();
 let mongoose = require('mongoose');
 
 // define the book model
-let book = require('../models/books');
+let book = require('../models/survey');
 
-/* GET books List page. READ */
+/* GET survey List page. READ */
 router.get('/', (req, res, next) => {
-  // find all books in the books collection
-  book.find( (err, books) => {
+  // find all survey in the survey collection
+  book.find( (err, survey) => {
     if (err) {
       return console.error(err);
     }
     else {
-      res.render('books/index', {
-        title: 'Books',
-        books: books
+      res.render('survey/index', {
+        title: 'survey',
+        survey: survey
       });
     }
   });
 
 });
 
-//  GET the Book Details page in order to add a new Book
+//  GET the Book Details page in order to create a survey
 router.get('/add', (req, res, next) => {
-  res.render('books/details', { title: 'Add a New Book', books: {}});
+  res.render('survey/details', { title: 'Create a Survey', survey: {}});
 });
 
-// POST process the Book Details page and create a new Book - CREATE
+// POST process the Book Details page and create a new survey - CREATE
 router.post('/add', (req, res, next) => {
   //create new book
     let newBook = book ({
@@ -53,7 +53,7 @@ router.post('/add', (req, res, next) => {
       }
       else
       {
-        res.redirect('/books');
+        res.redirect('/survey');
       }
     })
 });
@@ -71,7 +71,7 @@ router.get('/:id', (req, res, next) => {
       }
       else
       {
-          res.render('books/details', {title: 'Edit Book', books: bookToEdit})
+          res.render('survey/details', {title: 'Edit Book', survey: bookToEdit})
       }
   });
 });
@@ -100,7 +100,7 @@ router.post('/:id', (req, res, next) => {
       else
       {
 
-          res.redirect('/books');
+          res.redirect('/survey');
       }
   });
 
@@ -120,7 +120,7 @@ router.get('/delete/:id', (req, res, next) => {
       else
       {
 
-           res.redirect('/books');
+           res.redirect('/survey');
       }
   });
 });
